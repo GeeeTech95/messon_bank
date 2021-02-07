@@ -250,6 +250,13 @@
                     <h2 class="title-head">We Buy at Best<span>Rates</span></h2>
                     <div class="title-head-subtitle">
                         <p>Trade your cryptocurrencies with the Ideal eXchange</p>
+                        <div class="action-text">
+								<h2>Trade your cryptocurrencies with Ideal Xchange </h2>
+								
+							</div>
+							<!-- Call To Action Text Ends -->
+							<!-- Call To Action Button Starts -->
+							<p class="action-btn"><a class="btn btn-primary" href="https://wa.me/+2348162467444?text=hello%20me">Chat us now</a></p>
                     </div>
                 </div>
                 <!-- Section Title Ends -->
@@ -446,7 +453,7 @@
                 <div class="row text-center">
                     <h2 class="title-head">our <span>Clients</span></h2>
                     <div class="title-head-subtitle">
-                        <p> A talented team of Cryptocurrency experts based in London</p>
+                        <p>We are trusted beyond all boundaries</p>
                     </div>
                 </div>
                 <!-- Section Title Ends -->
@@ -569,8 +576,9 @@
                     <!-- Quote Starts -->
                     <div class="col-md-4 img-block-quote bg-image-2">
                         <blockquote>
-                            <p>Bitcoin is one of the most important inventions in all of human history. For the first time ever, anyone can send or receive any amount of money with anyone else, anywhere on the planet, conveniently and without restriction. It’s the dawn of a better, more free world.</p>
-                            <footer><img src="images/ceo.jpg" alt="ceo" /> <span>Marc Smith</span> - CEO</footer>
+                            <p>I do at this point think bitcoin is a good thing, and I am a supporter of bitcoin,
+                            I think bitcoin is really on the verge of getting broad acceptance by conventional finance people</p>
+                            <footer><img src="{% static 'xchange/images/elon.jpg' %}" alt="elon" /> <span>Elon Musk</span> </footer>
                         </blockquote>
                     </div>
                     <!-- Quote Ends -->
@@ -599,7 +607,7 @@
                 <div class="row text-center">
                     <h2 class="title-head">Crypto<span> Updates</span></h2>
                     <div class="title-head-subtitle">
-                        <p>Discover latest news about Bitcoin on our blog</p>
+                        <p>Discover latest news about Crypto on our blog</p>
                     </div>
                 </div>
                 <!-- Section Title Ends -->
@@ -609,8 +617,10 @@
                     {% for blog in blogs %}
                     <div class="col-sm-4 col-md-4 col-xs-12">
                         <div class="latest-post">
+                            {% if blog.picture.url %}
                             <!-- Featured Image Starts -->
-                            <a href="blog-post.html"><img class="img-responsive" src="images/blog/blog-post-small-1.jpg" alt="img"></a>
+                            <a href="{% url 'blog-detail-core' blog.slug %}"><img class="img-responsive" src="{{blog.picture.url}}" alt="img"></a>
+                            {% endif %}
                             <!-- Featured Image Ends -->
                             <!-- Article Content Starts -->
                             <div class="post-body">
@@ -625,7 +635,7 @@
                                 <span>{{blog.date|date:"D"}}</span>
                                 <span>{{blog.date|date:"M"}}</span>
                             </div>
-							<a href="blog-post.html" class="btn btn-primary">read more</a>
+							<a href="{% url 'blog-detail-core' blog.slug %}" class="btn btn-primary">read more</a>
                             <!-- Article Content Ends -->
                         </div>
                     </div>

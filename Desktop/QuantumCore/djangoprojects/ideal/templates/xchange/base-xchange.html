@@ -5,11 +5,11 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Bayya - Bitcoin Crypto Currency Template</title>
+    <title>Ideal Inc.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static 'xchange/images/favicon.png' %}">
+    <link rel="shortcut icon" href="{% static 'ideal/images/logo_favicon.jpg' %}">
 
     <!-- Template CSS Files -->
     <link rel="stylesheet" href="{% static 'xchange/css/font-awesome.min.css' %}">
@@ -103,7 +103,7 @@
                     <!-- Logo Starts -->
                     <div class="main-logo col-xs-12 col-md-3 col-md-2 col-lg-2 hidden-xs">
                         <a href="index-2.html">
-							<img id="logo" class="img-responsive" src="images/logo-dark.png" alt="logo">
+							<img style="" id="logo" class="img-responsive" src="{% static 'xchange/images/xchange_dark.png' %}" alt="logo">
 						</a>
                     </div>
                     <!-- Logo Ends -->
@@ -128,8 +128,8 @@
                     <!-- User Sign In/Sign Up Starts -->
                     <div class="col-md-3 col-lg-3">
                         <ul class="unstyled user">
-                            <li class="sign-in"><a href="login.html" class="btn btn-primary"><i class="fa fa-user"></i> sign in</a></li>
-                            <li class="sign-up"><a href="register.html" class="btn btn-primary"><i class="fa fa-user-plus"></i> register</a></li>
+                            <li class="sign-in"><a href="#" class="btn btn-primary"><i class="fa fa-user"></i> sign in</a></li>
+                            <li class="sign-up"><a href="#" class="btn btn-primary"><i class="fa fa-user-plus"></i> register</a></li>
                         </ul>
                     </div>
                     <!-- User Sign In/Sign Up Ends -->
@@ -141,7 +141,7 @@
                     <div class="site-nav-inner">
                         <!-- Logo For ONLY Mobile display Starts -->
                         <a class="logo-mobile" href="index-2.html">
-							<img id="logo-mobile" class="img-responsive" src="images/logo-dark.png" alt="">
+							<img id="logo-mobile" class="img-responsive" src="{% static 'xchange/images/xchange_dark.png' %}" alt="">
 						</a>
                         <!-- Logo For ONLY Mobile display Ends -->
                         <!-- Toggle Icon for Mobile Starts -->
@@ -155,20 +155,22 @@
                         <div class="collapse navbar-collapse navbar-responsive-collapse">
                             <!-- Main Menu Starts -->
                             <ul class="nav navbar-nav">
-                                <li class="active"><a href="index-2.html">Home</a></li>
-                                <li><a href="about.html">About Us</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <i class="fa fa-angle-down"></i></a>
+                                <li class="active"><a href="{% url 'index-xchange' %}">Home</a></li>
+                                <li><a href="{% url 'about-xchange' %}">About Us</a></li>
+                                <li><a href="{% url 'services-xchange' %}">Services</a></li>
+                                <li><a href="{% url 'news-xchange' %}">News</a></li>
+                                <li><a href="{% url 'contact-xchange' %}">Contact Us</a></li>
+                               
+                                <!--li class="dropdown">
+                                    <!-a href="#" class="dropdown-toggle" data-toggle="dropdown">News<i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="blog-right-sidebar.html">Right Sidebar</a></li>
                                         <li><a href="blog-left-sidebar.html">Left Sidebar</a></li>
 										<li><a href="blog-grid-no-sidebar.html">Grid No Sidebar</a></li>
                                         <li><a href="blog-post.html">Single Post</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
+                                    </ul-->
+                                </li-->
+                                <!--li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">pages <i class="fa fa-angle-down"></i></a>
                                     <ul class="dropdown-menu" role="menu">
                                         <li><a href="register.html">Register page</a></li>
@@ -183,7 +185,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="contact.html">Contact</a></li>
-								<!-- Cart Icon Starts -->
+								<!-- Cart Icon Starts ->
 								<li class="cart"><a href="shopping-cart.html"><i class="fa fa-shopping-cart"></i></a></li>
 								<!-- Cart Icon Starts -->
                                 <!-- Search Icon Starts -->
@@ -918,12 +920,13 @@
                             <h4>Our Company</h4>
                             <div class="menu">
                                 <ul>
-                                    <li><a href="index-2.html">Home</a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="services.html">Services</a></li>
-                                    <li><a href="pricing.html">Pricing</a></li>
-                                    <li><a href="blog-right-sidebar.html">Blog</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                        <li class="active"><a href="{% url 'index-xchange' %}">Home</a></li>
+                                        <li><a href="{% url 'about-xchange' %}">About Us</a></li>
+                                        <li><a href="{% url 'services-xchange' %}">Services</a></li>
+                                        <li><a href="{% url 'news-xchange' %}">News Update</a></li>
+                                
+                                   
+                                    <li><a href="#">Contact</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -933,12 +936,12 @@
                             <h4>Help & Support</h4>
                             <div class="menu">
                                 <ul>
-                                    <li><a href="faq.html">FAQ</a></li>
-                                    <li><a href="terms-of-services.html">Terms of Services</a></li>
-                                    <li><a href="404.html">404</a></li>
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="coming-soon.html">Coming Soon</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="{% url 'tos-xchange' %}">Terms of Services</a></li>
+                                    
+                                    <li><a href="#">Register</a></li>
+                                    <li><a href="#">Login</a></li>
+                                  
                                 </ul>
                             </div>
                         </div>
@@ -951,11 +954,9 @@
                                     <span>contact@website.com</span>
                                 </div>
                                 <div>
-                                    <span>00216 21 184 010</span>
+                                    <span>+2347039245264</span>
                                 </div>
-                                <div>
-                                    <span>London, England</span>
-                                </div>
+                              
                                 <div>
                                     <span>mon-sat 08am &#x21FE; 05pm</span>
                                 </div>
@@ -963,10 +964,11 @@
 							<!-- Social Media Profiles Starts -->
                             <div class="social-footer">
                                 <ul>
-                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                    <!--li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li-->
+                                    <li><a href="https://www.instagram.com/idealxchange" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="https://wa.me/+2348162467444?text=hello" target="_blank"><i class="fa fa-whatsapp"></i></a></li>
+                                    <!--li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li-->
                                 </ul>
                             </div>
 							<!-- Social Media Profiles Ends -->
@@ -996,7 +998,7 @@
 							<!-- Facts Ends -->
 							<hr>
 							<!-- Supported Payment Cards Logo Starts -->
-							<div class="payment-logos">
+							<!--div class="payment-logos">
 								<h4 class="payment-title">supported payment methods</h4>
 								<img src="images/icons/payment/american-express.png" alt="american-express">
 								<img src="images/icons/payment/mastercard.png" alt="mastercard">

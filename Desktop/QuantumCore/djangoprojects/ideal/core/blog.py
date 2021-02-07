@@ -21,7 +21,7 @@ class DeleteBlog(LoginRequiredMixin,UserPassesTestMixin,DeleteView)  :
     model = Blog
     
     def test_func(self) :
-        if self.request.user ==  self.get_object().author
+        return self.request.user ==  self.get_object().author
 
 
 class  UpdateBlog(LoginRequiredMixin,UserPassesTestMixin,UpdateView)   :
@@ -31,7 +31,7 @@ class  UpdateBlog(LoginRequiredMixin,UserPassesTestMixin,UpdateView)   :
     model = Blog
     
     def test_func(self) :
-        if self.request.user ==  self.get_object().author
+        return self.request.user ==  self.get_object().author
 
 
 

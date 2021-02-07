@@ -1,0 +1,350 @@
+{% extends 'base-xchange.html' %}
+{% load static %}
+
+        <!-- Header Ends -->
+        {% block content %}
+		<!-- Banner Area Starts -->
+		<section class="banner-area">
+			<div class="banner-overlay">
+				<div class="banner-text text-center">
+					<div class="container">
+						<!-- Section Title Starts -->
+						<div class="row text-center">
+							<div class="col-xs-12">
+								<!-- Title Starts -->
+								<h2 class="title-head banner-post-title">{{blog.title}}</h2>
+								<!-- Title Ends -->
+								<!-- Meta Starts -->
+								<div class="meta">
+									<span><i class="fa fa-user"></i> <a href="#">admin</a></span>
+									<span class="date"><i class="fa fa-calendar"></i>{{blog.date}}</span>
+									<!--span><i class="fa fa-commenting"></i> <a href="blog-post.html">29 comments</a></span-->
+									<span><i class="fa fa-tags"></i> risks, warning, cons</span>
+								</div>
+								<!-- Meta Ends -->
+							</div>
+						</div>
+						<!-- Section Title Ends -->
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- Banner Area Ends -->
+		<!-- Section Content Starts -->
+        <section class="container blog-page">
+			<div class="row">
+				<div class="content col-xs-12 col-md-8">
+					<!-- Article Starts -->
+					<article>
+                        <!-- Figure Starts -->
+                        {% if blog.picture.url %}
+						<figure class="blog-figure">
+							<img class="img-responsive" src="{{blog.picture.url}}" alt="">
+                        </figure>
+                        {% endif %}
+						<!-- Figure Ends -->
+						<!-- Content Starts -->
+						<p class="content-article">{{blog.content}}</p>
+						<!-- Content Ends -->
+						<!-- Meta Starts -->
+						<div class="meta second-font">
+							<span><i class="fa fa-user"></i> <a href="#">admin</a></span>
+							<span class="date"><i class="fa fa-calendar"></i>{{blog.date}}</span>
+							<!--span><i class="fa fa-commenting"></i> <a href="blog-post.html">18 comments</a></span-->
+							<span><i class="fa fa-tags"></i> market, cryptocurrency, trading</span>
+						</div>
+						<!-- Meta Ends -->
+						<!-- Comments Starts ->
+						<div class="comments">
+							<h3 class="comments-heading uppercase">3 Comments</h3>
+							<ul class="comments-list">
+								<li>
+									<!-- Comment Starts ->
+									<div class="comment">
+										<img class="comment-avatar pull-left" alt="" src="images/blog/user1.jpg">
+										<div class="comment-body">
+											<div class="meta-data">
+												<span class="comment-author">Lina Marzouki</span>
+												<span class="comment-date pull-right second-font">January 17, 2017</span>
+											</div>
+											<p class="comment-content">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehen.</p>
+											<div>
+												<a class="comment-reply" href="#">Reply</a>
+											</div>	
+										</div>
+									</div>
+									<!-- Comment Ends ->
+									<ul class="comments-reply">
+										<li>
+											<!-- Comment Starts ->
+											<div class="comment">
+												<img class="comment-avatar pull-left" alt="" src="images/blog/user2.jpg">
+												<div class="comment-body">
+													<div class="meta-data">
+														<span class="comment-author">Rawia Chniti</span>
+														<span class="comment-date pull-right">March 29, 2017</span>
+													</div>
+													<p class="comment-content">
+													Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehen.</p>
+													<div>
+														<a class="comment-reply" href="#">Reply</a>
+													</div>	
+												</div>
+											</div>
+											<!-- Comment Ends ->
+										</li>
+									</ul>
+									<!-- Comment Starts --=>
+									<div class="comment">
+										<img class="comment-avatar pull-left" alt="" src="images/blog/user3.jpg">
+										<div class="comment-body">
+											<div class="meta-data">
+												<span class="comment-author">Slim Hamdi</span>
+												<span class="comment-date pull-right">January 17, 2017</span>
+											</div>
+											<p class="comment-content">
+											Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehen.</p>
+											<div>
+												<a class="comment-reply" href="#">Reply</a>
+											</div>	
+										</div>
+									</div>
+									<!-- Comment Ends ->
+								</li>
+							</ul>
+							<h3 class="comments-heading add-comment">Add a comment</h3>
+							<!-- Comments Form Starts -->
+							
+							<!-- Comments Form Ends ->
+						</div-->
+					</article>
+					<!-- Article Ends -->
+				</div>
+				<!-- Sidebar Starts -->
+				<div class="sidebar col-xs-12 col-md-4">
+					<!-- Categories Widget Starts -->
+					<div class="widget">
+						<h3 class="widget-title">Categories</h3>
+						<ul class="arrow nav nav-tabs second-font uppercase">
+							{% for category in categoriees %}
+                            <li><a href="#">{{category}}</a></li>
+                            {% endfor %}
+						</ul>
+					</div>
+					<!-- Categories Widget Ends -->
+					<!-- Archives Widget Starts -->
+					<div class="widget">
+						<h3 class="widget-title">Archives</h3>
+						<ul class="arrow nav nav-tabs second-font uppercase">
+						
+						</ul>
+					</div>
+					<!-- Archives Widget Ends -->
+					<!-- Latest Posts Widget Ends -->
+					<div class="widget recent-posts">
+						<h3 class="widget-title">Recent Posts</h3>
+						<ul class="unstyled clearfix">
+                        <!-- Recent Post Widget Starts -->
+                        {% for blog in recent %}
+						<li>
+							<div class="posts-thumb pull-left"> 
+                                {% if blog.picture.url %}
+								<a href="{% url 'blog-detail-core' blog.slug %}">
+									<img alt="img" src="{{blog.picture.url }}">
+                                </a>
+                                {% endif %}
+							</div>
+							<div class="post-info">
+								<h4 class="entry-title">
+									<a href="{% url 'blog-detail-core' blog.slug %}">{{blog.title}}</a>
+								</h4>
+								<p class="post-meta">
+									<span class="post-date"><i class="fa fa-clock-o"></i>{{blog.date}}</span>
+								</p>
+							</div>
+							<div class="clearfix"></div>
+						</li>
+						<!-- Recent Post Widget Ends -->
+                        <!-- Recent Post Widget Starts -->
+                     {% endfor %}
+						<!--recent Post Widget Ends -->
+						</ul>
+					</div>
+					<!-- Latest Posts Widget Ends -->
+					<!-- Tags Widget Starts -->
+					<div class="widget widget-tags">
+						<h3 class="widget-title">Popular Tags </h3>
+						<ul class="unstyled clearfix">
+                            {% for tag in popular_tags %}
+							<li><a href="#">{{tag}}</a></li>
+							{% endfor %}
+			            </ul>
+					</div>
+					<!-- Tags Widget Ends -->
+				</div>
+				<!-- Sidebar Ends -->
+			</div>
+		</section>
+		<!-- Section Content Ends -->
+        <!-- Call To Action Section Starts -->
+        <section class="call-action-all">
+			<div class="call-action-all-overlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<!-- Call To Action Text Starts -->
+							<div class="action-text">
+								<h2>Trade your cryptocurrencies with Ideal Xchange </h2>
+								
+							</div>
+							<!-- Call To Action Text Ends -->
+							<!-- Call To Action Button Starts -->
+							<p class="action-btn"><a class="btn btn-primary" href="https://wa.me/+2348162467444?text=hello%20me">Chat us now</a></p>
+							<!-- Call To Action Button Ends -->
+						</div>
+					</div>
+				</div>
+			</div>
+        </section>
+        {% endblock %}
+        <!-- Call To Action Section Ends -->
+        <!-- Footer Starts -->
+        <footer class="footer">
+            <!-- Footer Top Area Starts -->
+            <div class="top-footer">
+                <div class="container">
+                    <div class="row">
+                        <!-- Footer Widget Starts -->
+                        <div class="col-sm-4 col-md-2">
+                            <h4>Our Company</h4>
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="index-2.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="pricing.html">Pricing</a></li>
+                                    <li><a href="blog-right-sidebar.html">Blog</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Footer Widget Ends -->
+                        <!-- Footer Widget Starts -->
+                        <div class="col-sm-4 col-md-2">
+                            <h4>Help & Support</h4>
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                    <li><a href="terms-of-services.html">Terms of Services</a></li>
+                                    <li><a href="404.html">404</a></li>
+                                    <li><a href="register.html">Register</a></li>
+                                    <li><a href="login.html">Login</a></li>
+                                    <li><a href="coming-soon.html">Coming Soon</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Footer Widget Ends -->
+                        <!-- Footer Widget Starts -->
+                        <div class="col-sm-4 col-md-3">
+                            <h4>Contact Us </h4>
+                            <div class="contacts">
+                                <div>
+                                    <span>contact@website.com</span>
+                                </div>
+                                <div>
+                                    <span>00216 21 184 010</span>
+                                </div>
+                                <div>
+                                    <span>London, England</span>
+                                </div>
+                                <div>
+                                    <span>mon-sat 08am &#x21FE; 05pm</span>
+                                </div>
+                            </div>
+							<!-- Social Media Profiles Starts -->
+                            <div class="social-footer">
+                                <ul>
+                                    <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+							<!-- Social Media Profiles Ends -->
+                        </div>
+                        <!-- Footer Widget Ends -->
+						<!-- Footer Widget Starts -->
+                        <div class="col-sm-12 col-md-5">
+							<!-- Facts Starts -->
+							<div class="facts-footer">
+								<div>
+									<h5>$198.76B</h5>
+									<span>Market cap</span>
+								</div>
+								<div>
+									<h5>243K</h5>
+									<span>daily transactions</span>
+								</div>
+								<div>
+									<h5>369K</h5>
+									<span>active accounts</span>
+								</div>
+								<div>
+									<h5>127</h5>
+									<span>supported countries</span>
+								</div>
+							</div>
+							<!-- Facts Ends -->
+							<hr>
+							<!-- Supported Payment Cards Logo Starts -->
+							<div class="payment-logos">
+								<h4 class="payment-title">supported payment methods</h4>
+								<img src="images/icons/payment/american-express.png" alt="american-express">
+								<img src="images/icons/payment/mastercard.png" alt="mastercard">
+								<img src="images/icons/payment/visa.png" alt="visa">
+								<img src="images/icons/payment/paypal.png" alt="paypal">
+								<img class="last" src="images/icons/payment/maestro.png" alt="maestro">
+							</div>
+							<!-- Supported Payment Cards Logo Ends -->
+                        </div>
+                        <!-- Footer Widget Ends -->
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Top Area Ends -->
+            <!-- Footer Bottom Area Starts -->
+            <div class="bottom-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <!-- Copyright Text Starts -->
+                            <p class="text-center"><a href="templateshub.net" target="_blank">Templates Hub</a></p>
+                            <!-- Copyright Text Ends -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Bottom Area Ends -->
+        </footer>
+        <!-- Footer Ends -->
+		<!-- Back To Top Starts  -->
+        <a href="#" id="back-to-top" class="back-to-top fa fa-arrow-up"></a>
+		<!-- Back To Top Ends  -->
+		
+        <!-- Template JS Files -->
+        <script src="js/jquery-2.2.4.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/select2.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/custom.js"></script>
+		
+		<!-- Live Style Switcher JS File - only demo -->
+		<script src="js/styleswitcher.js"></script>
+
+    </div>
+    <!-- Wrapper Ends -->
+</body>
+
+
+</html>
