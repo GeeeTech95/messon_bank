@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- START PAGE BANNER AND BREADCRUMBS -->
+<section id="page-banner">
+		<div class="single-page-title-area overlay" data-background="{%  static 'assets/img/bg/slide1.jpg' %}">
+			<div class="auto-container">
+				<div class="row">
+					<div class="col-12 text-center">
+						<div class="single-page-title">
+							<h2>Checkout  </h2>
+							<p></p>
+						</div>
+					</div>
+				</div>
+				<!-- end row-->
+			</div>
+		</div>
+		<div class="single-page-title-area-bottom">
+			<div class="auto-container">
+				<div class="row">
+					<div class="col-12 text-center">
+						<ol class="breadcrumb">
+							<li class="breadcrumb-item"><a href="{% url 'index' %} ">Home</a></li>
+							<li class="breadcrumb-item active">Deposit</li>
+						</ol>
+					</div>
+				</div>
+				<!-- end row-->
+			</div>
+		</div>
+	</section>
+	<!-- END PAGE BANNER AND BREADCRUMBS -->
+	
+	
+	<!-- START SHOP CHECKOUT -->
+	<section class="section-padding" style="padding-top:20px">
+		<div class="auto-container">
+            <p>1.Copy the address of your preferred token,make a payment from your preferred accounts and click <b>paid</b> button on the partcular address to proceed.</p>
+            <p><b>2. Please dont click the button if you have made no payments,and be sure to click on the correct button to lessen verification delay.</b></p>
+            <p><b>Disclaimer</b> : payment to wrong addresses will be entirely on the user,please apply caution.</p>
+			<div class="row mt-5">
+				<div class="col-lg-4 col-md-4 col-sm-12 col-12">
+					<h5 class="mt-5 text-uppercase mb-4">Your Deposit</h5>
+					<div class="table-responsive">
+						<table class="table table-striped">
+							<tbody>
+								<tr>
+									<th>Plan</th>
+									<td>{{plan.name}}</td>
+								</tr>
+								<tr>
+									<th>Amount</th>
+									<td>${{plan.activation_cost}}</td>
+								</tr>
+								
+								<tr>
+									<th>Total:</th>
+									<td>${{plan.activation_cost}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- end col -->
+				<div style="padding-top:0px" class="col-lg-8 col-md-8 col-sm-12 col-12 pl-lg-5 pl-md-5 pl-sm-2 pl-2">
+					<h5 class="mt-5 text-uppercase mb-4">Accepted Coin and Wallet Addresses</h5>
+                    
+                    <table class="table table-striped">
+							<tbody>
+								<tr>
+									<th>BITCOIN</th>
+									<td>467qt34qghruwtf67tw64tqg34yq763q3hurg7q63</td>
+                                    <td>
+                                        <a href="{% url 'payment-complete' plan.slug 'BTC' %}" ><button style="background-color:orange;color:white">Paid</button></a>
+                                    </td>
+                                </tr>
+								<tr>
+									<th>ETHEREUM</th>
+									<td>bed77q934qg9yrg9ywgefyqg93w74qyryg76q3443q</td>
+                                    <td>
+                                            <a href="{% url 'payment-complete' plan.slug 'ETH' %}" ><button style="background-color:orange;color:white">Paid</button></a>
+                                    </td>
+                                </tr>
+								
+								<tr>
+									<th>BNB</th>
+									<td>7824yhr7q3grygqb7r9erywgsyefhuguywsgfyuggg</td>
+                                    <td>
+                                            <a href="{% url 'payment-complete' plan.slug 'BNB' %}" ><button style="background-color:orange;color:white">Paid</button></a>
+                                    </td>
+                                </tr>
+							</tbody>
+						</table>
+					
+				</div>
+				<!-- end col -->
+			</div>
+            <!-- end row-->
+           
+	</section>
+    <!-- END SHOP CHECKOUT -->
+    
+    {% endblock %}

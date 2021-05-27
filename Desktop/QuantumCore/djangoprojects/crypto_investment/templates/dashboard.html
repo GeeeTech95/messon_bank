@@ -1,0 +1,348 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!--   Tue, 07 Jan 2020 03:33:27 GMT -->
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+<title>{{user.username}}&mdash; Dashboard</title>
+
+<!-- General CSS Files -->
+<link rel="stylesheet" href="{% static 'dashboard/assets/modules/bootstrap/css/bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/assets/modules/fontawesome/css/all.min.css' %}">
+
+<!-- CSS Libraries -->
+<link rel="stylesheet" href="{% static 'dashboard/assets/modules/jqvmap/dist/jqvmap.min.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/assets/modules/summernote/summernote-bs4.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/assets/modules/owlcarousel2/dist/assets/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/assets/modules/owlcarousel2/dist/assets/owl.theme.default.min.css' %}">
+
+<!-- Template CSS -->
+<link rel="stylesheet" href="{% static 'dashboard/assets/css/style.min.css' %}">
+<link rel="stylesheet" href="{% static 'dashboard/assets/css/components.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/modules/bootstrap-social/bootstrap-social.css' %}">
+
+{% block head %}
+{% endblock %}
+
+<!-- icofont icon -->
+<link rel="stylesheet" href="{% static 'assets/css/icofont.css' %}">	
+<!-- font awesome icon -->
+<link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}">	
+</head>
+<body class="layout-4">
+<!-- Page Loader -->
+<div class="page-loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
+
+<div id="app">
+    <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        
+        <!-- Start app top navbar -->
+        <nav class="navbar navbar-expand-lg main-navbar">
+            <form class="form-inline mr-auto">
+                <ul class="navbar-nav mr-3">
+                    <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+                    <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+                </ul>
+                <div class="search-element">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250">
+                    <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                    <div class="search-backdrop"></div>
+                    <div class="search-result">
+                        
+                    </div>
+                </div>
+            </form>
+            <ul class="navbar-nav navbar-right">
+                
+                <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
+                    <div class="dropdown-menu dropdown-list dropdown-menu-right">
+                    <div class="dropdown-header">Notifications
+                       
+                    </div>
+                    <div class="dropdown-list-content dropdown-list-icons">
+                        <a href="#" class="dropdown-item dropdown-item-unread">
+                            <div class="dropdown-item-icon bg-primary text-white">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="dropdown-item-desc"> Template update is available now!
+                                <div class="time text-primary">2 Min Ago</div>
+                            </div>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <div class="dropdown-item-icon bg-info text-white">
+                                <i class="far fa-user"></i>
+                            </div>
+                            <div class="dropdown-item-desc">
+                                <b>You</b> and <b>Dedik Sugiharto</b> are now friends
+                                <div class="time">10 Hours Ago</div>
+                            </div>
+                        </a>
+                       
+                    </div>
+                    <div class="dropdown-footer text-center">
+                        
+                    </div>
+                    </div>
+                </li>
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                    <img alt="image" src="{% static 'dashboard/assets/img/avatar/avatar-1.png' %}" class="rounded-circle mr-1">
+                    <div class="d-sm-none d-lg-inline-block">Hi, Michelle Green</div></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        
+                        <a href="{% url 'profile' %}" class="dropdown-item has-icon"><i class="far fa-user"></i> Profile</a>
+                        
+                        <div class="dropdown-divider"></div>
+                        <a href="{% url 'logout' %}" class="dropdown-item has-icon text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Start main left sidebar menu -->
+        <div class="main-sidebar sidebar-style-3">
+            <aside id="sidebar-wrapper">
+               
+                <ul class="sidebar-menu">
+                   
+                    <li class="dropdown ">
+                       <a href="#" ><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                      
+                    </li> 
+                    <li class="dropdown ">
+                            <a href="{% url 'profile' %}" ><i class="fas fa-user"></i><span>Profile</span></a>
+                           
+                    </li>
+                    <li class="dropdown ">
+                            <a href="#" ><i class="fas fa-arrow-down"></i><span>Withdraw</span></a>
+                           
+                    </li>  
+   
+                </ul>
+               
+            </aside>
+        </div>
+
+        
+
+        <!-- Start app main Content -->
+        <div class="main-content">
+            {% block content %}
+            section class="section">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                        <div class="card card-statistic-2">
+                        
+                            <div class="card-icon shadow-primary bg-primary">
+                                <i class="fas fa-archive"></i>
+                            </div>
+                            <div class="card-wrap">
+                                    <div class="row">
+                                            <div class="col-6" style="margin:0px;padding:0px">
+                                                <div class="card-header">
+                                                    <h4>Balance</h4>
+                                                </div>
+                                                <div class="card-body" style="font-size:21px">
+                                                    $187,13
+                                                </div>
+                                            </div>
+                                            <div class="col-6" style="margin:0px;padding:0px">
+                                                    <div class="card-header">
+                                                        <h4>Plan</h4>
+                                                    </div>
+                                                    <div class="card-body" style="font-size:21px">
+                                                        Basic
+                                                    </div>
+                                                </div>
+                                        </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                            <div class="card card-statistic-2">
+                            
+                                <div class="card-icon shadow-primary bg-primary">
+                                    <i class="fas fa-archive"></i>
+                                </div>
+                                <div class="card-wrap">
+                                        <div class="row">
+                                                <div class="col-6" style="margin:0px;padding:0px">
+                                                    <div class="card-header">
+                                                        <h4>Referral earning</h4>
+                                                    </div>
+                                                    <div class="card-body" style="font-size:21px">
+                                                        $187,13
+                                                    </div>
+                                                </div>
+                                                <div class="col-6" style="margin:0px;padding:0px">
+                                                        <div class="card-header">
+                                                            <h4>Referrals</h4>
+                                                        </div>
+                                                        <div class="card-body" style="font-size:21px">
+                                                           56
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="card card-statistic-2">
+                                
+                                    <div class="card-icon shadow-primary bg-primary">
+                                        <i class="fas fa-archive"></i>
+                                    </div>
+                                    <div class="card-wrap">
+                                        <div class="row">
+                                            <div class="col-6" style="margin:0px;padding:0px">
+                                                <div class="card-header">
+                                                    <h4>Pending Deposit</h4>
+                                                </div>
+                                                <div class="card-body" style="font-size:21px">
+                                                    $187,13
+                                                </div>
+                                            </div>
+                                            <div class="col-6" style="margin:0px;padding:0px">
+                                                    <div class="card-header">
+                                                        <h4>Pending Withdrawal</h4>
+                                                    </div>
+                                                    <div class="card-body" style="font-size:21px">
+                                                        $187,13
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+                <div class="row row-deck">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Live Chart</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="myChart" height="158"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Transactions</h4>
+                                    
+                                </div>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive table-invoice">
+                                        <table class="table table-striped">
+                                        <tr>
+                                            <th>Invoice ID</th>
+                                            <th>Customer</th>
+                                            <th>Status</th>
+                                            <th>Due Date</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">INV-87239</a></td>
+                                            <td class="font-weight-600">Kusnadi</td>
+                                            <td><div class="badge badge-warning">Unpaid</div></td>
+                                            <td>July 19, 2018</td>
+                                            <td>
+                                            <a href="#" class="btn btn-primary">Detail</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">INV-48574</a></td>
+                                            <td class="font-weight-600">Susie Willis</td>
+                                            <td><div class="badge badge-success">Paid</div></td>
+                                            <td>July 21, 2018</td>
+                                            <td>
+                                            <a href="#" class="btn btn-primary">Detail</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">INV-76824</a></td>
+                                            <td class="font-weight-600">Muhamad Nuruzzaki</td>
+                                            <td><div class="badge badge-warning">Unpaid</div></td>
+                                            <td>July 22, 2018</td>
+                                            <td>
+                                            <a href="#" class="btn btn-primary">Detail</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">INV-84990</a></td>
+                                            <td class="font-weight-600">Agung Ardiansyah</td>
+                                            <td><div class="badge badge-warning">Unpaid</div></td>
+                                            <td>July 22, 2018</td>
+                                            <td>
+                                            <a href="#" class="btn btn-primary">Detail</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="#">INV-87320</a></td>
+                                            <td class="font-weight-600">Ardian Rahardiansyah</td>
+                                            <td><div class="badge badge-success">Paid</div></td>
+                                            <td>July 28, 2018</td>
+                                            <td>
+                                            <a href="#" class="btn btn-primary">Detail</a>
+                                            </td>
+                                        </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+        
+            </section>
+            
+            {% endblock %}
+
+        </div>
+        
+
+        <!-- Start app Footer part ->
+        <footer class="main-footer">
+            <div class="footer-left">
+                 <div class="bullet"></div>  <a href="templateshub.net">Templates Hub</a>
+            </div>
+            <div class="footer-right">
+            
+            </div>
+        </footer-->
+    </div>
+</div>
+
+
+<!-- General JS Scripts -->
+<script src="{% static 'dashboard/assets/bundles/lib.vendor.bundle.js' %}""></script>
+<script src="{% static 'dashboard/js/CodiePie.js' %}""></script>
+
+<!-- JS Libraies -->
+<script src="{% static 'dashboard/assets/modules/jquery.sparkline.min.js' %}""></script>
+<script src="{% static 'dashboard/assets/modules/chart.min.js' %}""></script>
+<script src="{% static 'dashboard/assets/modules/owlcarousel2/dist/owl.carousel.min.js' %}""></script>
+<script src="{% static 'dashboard/assets/modules/summernote/summernote-bs4.js' %}""></script>
+<script src="{% static 'dashboard/assets/modules/chocolat/dist/js/jquery.chocolat.min.js' %}""></script>
+
+<!-- Page Specific JS File -->
+<script src="{% static 'dashboard/js/page/index.js' %}""></script>
+
+<!-- Template JS File -->
+<script src="{% static 'dashboard/js/scripts.js' %}""></script>
+<script src="{% static 'dashboard/js/custom.js' %}""></script>
+</body>
+
+<!--   Tue, 07 Jan 2020 03:35:12 GMT -->
+</html>
