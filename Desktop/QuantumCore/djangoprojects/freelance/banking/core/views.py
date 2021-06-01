@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import RedirectView,View
 from django.http import JsonResponse
 from .forms import SubscribeForm
-from .models import NewsLaterSubscriber
+from .models import NewsLaterSubscriber,Notification as Notification_model
 
 
 
@@ -29,10 +29,11 @@ class Messages() :
     pass
 
 
-
-
 class Notification() :
-    pass
+    @staticmethod
+    def notify(user,message) :
+        Notification_model.objects.create(user = user,message = message)
+
 
 
 

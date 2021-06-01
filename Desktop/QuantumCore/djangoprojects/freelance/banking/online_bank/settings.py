@@ -73,6 +73,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'core.context.core',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -114,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_REDIRECT_URL = 'login-redirect'
 
 LOGOUT_REDIRECT_URL = "index"
 
@@ -141,7 +142,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 
 STATICFILES_DIRS = [
-#os.path.join(BASE_DIR,"klazik1"),
+
 os.path.join(BASE_DIR,"static")
 ]
 

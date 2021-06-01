@@ -200,13 +200,13 @@
                   </div>
                 </div>
                 <div class="dropdown-list-content dropdown-list-icons">
-                  {% for not in notifications %}
+                 
+                  {% for not in user.notification.all %}
+                 
                   <a href="#" class="dropdown-item dropdown-item-unread"> <span
                       class="dropdown-item-icon bg-primary text-white"> <i class="fas
                           fa-code"></i>
-                    </span> <span class="dropdown-item-desc"> Template update is
-                      available now! <span class="time">2 Min
-                        Ago</span>
+                    </span> <span class="dropdown-item-desc">{{not.message}} <span class="time">{{not.date}}</span>
                     </span>
                   </a>
                   {% endfor %} 
@@ -220,8 +220,8 @@
           
           <li class="dropdown"><a href="#" data-toggle="dropdown"
               class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-              {% if user.display_picture %} 
-              <img alt="image" src="{{user.display_picture.url}}" class="user-img-radious-style">
+              {% if user.passport %} 
+              <img alt="image" src="{{user.passport.url}}" class="user-img-radious-style">
               {% else %}
               <img alt="image" src="{% static 'dashboard/img/users/user-1.png' %}" class="user-img-radious-style">
               {% endif %}
@@ -249,25 +249,16 @@
             <li  class="nav-item"> 
                 <a style="color:black;padding-left:10px" href="{% url 'profile' %}" class="nav-link"><i class="fas fa-user"></i><span>Account Info</span></a>
             </li>
-            <li class="dropdown" style="padding-left:0px">
-                <a style="padding-left:10px" href="#" class="menu-toggle nav-link has-dropdown"><i class="fas fa-share"></i><span>Send Money</span></a>
-                <ul class="dropdown-menu">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'in-bank-transfer' %}"><i class="fas fa-home"></i><span>Domestic Transfer</span></a></li>
-                      <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-globe"></i><span>International Transfer</span></a></li>
-                     
-          
-    
-                </ul>
-            </li>
+            <li class="nav-item">
+              <a style="padding-left:10px" class="nav-link" href="{% url 'transfer' %}"><i class="fas fa-share"></i><span>Send Money</span></a></li>
             
-          
  
             <li class="dropdown" style="padding-left:0px">
                 <a style="padding-left:10px" href="#" class="menu-toggle nav-link has-dropdown"><i class="fas fa-money-bill"></i><span>Transactions</span></a>
                 <ul class="dropdown-menu">
                     <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-file"></i><span>Account Statement</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-history"></i><span>Transaction History</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-history"></i><span>Failed Transactions</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'transaction-history' %}"><i class="fas fa-history"></i><span>Transaction History</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i style="color: red" class="fas fa-history"></i><span>Failed Transactions</span></a></li>
           
     
                 </ul>
@@ -278,9 +269,9 @@
         <li class="dropdown" style="padding-left:0px">
             <a style="padding-left:10px" href="#" class="menu-toggle nav-link has-dropdown"><i class="fas fa-cog"></i><span>Settings</span></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href="#">Change Password</a></li>
-              <li><a class="nav-link" href="#">Change Transaction Pin</a></li>
-              <li><a class="nav-link" href="#">Set Transfer Limit</a></li>
+              <li><a class="nav-link"href="{% url 'password_reset' %}">Change Password</a></li>
+              <li><a class="nav-link" href="{% url 'change-pin' %}">Change Transaction Pin</a></li>
+              <!--li><a class="nav-link" href="#">Set Transfer Limit</a></li-->
 
             </ul>
         </li>

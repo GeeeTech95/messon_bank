@@ -1,6 +1,6 @@
 {% extends 'dashboard-base.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block css %}
 {% endblock %}
 {% block content %}
@@ -14,18 +14,24 @@
                         <div class="card author-box">
                             <div class="card-body">
                                 <div class="author-box-center">
-                                    <img style="width:40%;height:40%" alt="image" src="{% static 'dashboard/img/users/user-1.png' %}">
-                                    <div class="clearfix"></div>
+                                  {% if user.passport %}
+                                    <img style="width:40%;height:40%" alt="image" src="{{user.passport.url}}">
+                                  {% else %} 
+                                  <img style="width:40%;height:40%" alt="image" src="{% static 'dashboard/img/users/user-1.png' %}">
+                                  {% endif %}
+                                    <div class="clearfix"></div><br>
                                         <div class="author-box-name">
-                                            <a href="#">Sarah Smith</a>
+                                           {{user}}
                                         </div>
-                                        <div class="author-box-job">Web Developer</div>
+                                        <div class="author-box-job" style="font-size:19px">
+                                          Account number : <b>{{user.account_number}}</b><br>
+                                          Account Type : <b>{{user.account_type}}</b>
+                                        </div>
                                     </div>
                                 <div class="text-center">
                                     <div class="author-box-description">
                                         <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur voluptatum alias molestias
-                                            minus quod dignissimos.
+                                            
                                         </p>
                                     </div>
                                 </div>
@@ -35,51 +41,12 @@
                     </div>        
               <div class="col-12 col-md-12 col-lg-7">
                     <div class="card">
-                            <form class="needs-validation" novalidate="">
-                              <div class="card-header">
-                                <h4>Account Info Update</h4>
-                              </div>
-                              <div class="card-body">
-                                <div class="form-group row">
-                                  <label class="col-sm-3 col-form-label">Your Name</label>
-                                  <div class="col-sm-9">
-                                    <input type="text" class="form-control" required="">
-                                    <div class="invalid-feedback">
-                                      What's your name?
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label class="col-sm-3 col-form-label">Email</label>
-                                  <div class="col-sm-9">
-                                    <input type="email" class="form-control" required="">
-                                    <div class="invalid-feedback">
-                                      Oh no! Email is invalid.
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="form-group row">
-                                  <label class="col-sm-3 col-form-label">Subject</label>
-                                  <div class="col-sm-9">
-                                    <input type="email" class="form-control">
-                                    <div class="valid-feedback">
-                                      Good job!
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="form-group mb-0 row">
-                                  <label class="col-sm-3 col-form-label">Message</label>
-                                  <div class="col-sm-9">
-                                    <textarea class="form-control" required=""></textarea>
-                                    <div class="invalid-feedback">
-                                      What do you wanna say?
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="card-footer text-right">
+                            <form style="margin:15px" class="needs-validation" novalidate="" method="POST">
+                             {% csrf_token %}
+                             {{form|crispy}}
+                              <!--div class="card-footer text-right">
                                 <button class="btn btn-primary">Update</button>
-                              </div>
+                              </div-->
                             </form>
                           </div>
               </div>

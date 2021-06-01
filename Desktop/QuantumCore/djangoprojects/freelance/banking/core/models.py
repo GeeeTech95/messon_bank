@@ -9,6 +9,9 @@ class Notification(models.Model) :
     message = models.TextField()
     date = models.DateTimeField(auto_now_add = True)
 
+    class Meta() :
+        ordering = ['-date']
+
 
 class NewsLaterSubscriber(models.Model) :
     email = models.EmailField(blank = False)  

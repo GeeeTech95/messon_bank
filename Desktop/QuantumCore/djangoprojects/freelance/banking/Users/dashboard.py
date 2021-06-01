@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from django.forms.models import model_to_dict
 from wallet.models import Wallet
 from .forms import ProfileUpdateForm
+from wallet.models import Transaction
 
 
 class Dashboard(LoginRequiredMixin,TemplateView) :
@@ -19,9 +20,7 @@ class Dashboard(LoginRequiredMixin,TemplateView) :
         elif 'dpt' in self.request.GET :
             ctx['redirect_message'] = "Your deposit has been acknowledged,awaiting approval." 
         
-        #init = self.request.user.username[0] + self.request.user.name[0]
-        #ctx['initial'] = init.upper()
-        #ctx['pending_deposit'] = request.user.
+        ctx['transaction_history'] = self.request.user.transaction.all()[:5]
         return ctx
 
 
@@ -30,8 +29,12 @@ class AccountStatement() :
 
 
 
-class TransactionHistory() :
-    pass
+class TransactionHistory(TemplateView) :
+    template_name = 'transaction-history.html'
+    def get_context_data(self,*args,**kwargs) :
+        ctx = super(TransactionHistory,self).get_context_data(*args,**kwargs)  
+        ctx['transaction_history'] = self.request.user.transaction.all()
+        return ctx
 
 
 class TransactionDetail() :

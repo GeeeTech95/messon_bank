@@ -30,7 +30,7 @@
         <div class="account-wrapper">
             <div class="account-area">
                 <h3 class="account-title">Create an account with us</h3>
-                <form class="sign-in-form" method ="POST" action="">
+                <form class="sign-in-form" method ="POST" action="" enctype="multipart/form-data">
                     {% csrf_token %}
                    {{form.as_p}}
                    <div class="form-group w-100">

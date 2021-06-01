@@ -13,7 +13,9 @@
             <div class="row">
                 <div class="col-12 col-md-12 col-lg-12">
                    <div class="card">
-                        <h4 style="margin:10px;color:black;">Bank Transfer</h4>
+                       
+                        <h4 style="margin:10px;color:black;">Change Pin</h4>
+                         
                         <form class="needs-validation" novalidate="" method="POST" action="">
                             {% csrf_token %}
                         <div class="card-header">
@@ -23,7 +25,7 @@
                             {{form|crispy}}
                         </div>
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Submit</button>
+                            <button class="btn btn-primary">Proceed</button>
                         </div>
                         </form>
                     </div>

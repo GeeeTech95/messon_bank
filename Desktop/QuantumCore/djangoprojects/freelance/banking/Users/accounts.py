@@ -18,7 +18,7 @@ class Register(CreateView) :
         return
 
     def post(self,request,*args,**kwargs) :
-        form = self.form_class(request.POST)
+        form = self.form_class(request.POST,request.FILES)
         if form.is_valid() :
             user  = form.save()
             self.auto_create_wallet(user)
@@ -30,16 +30,16 @@ class Register(CreateView) :
         return HttpResponseRedirect(self.success_url)
 
 
-class Login(View)   :
+class LoginRedirect(View)   :
     template_name = 'login_account_blocked.html'
+    template_name2 = 'account_not_activated.html'
     
     def get(self,request,*args,**kwargs)  :
         #check if user is prevented from loggin in
-        if True : 
-            return HttpResponseRedirect(reverse('login'))
+        if request.user.is_activated : 
+            return HttpResponseRedirect(reverse('dashboard'))
         else :
-            return render(request,self.template_name,locals())
-
+            return render(request,self.template_name2,locals())
 
 
 

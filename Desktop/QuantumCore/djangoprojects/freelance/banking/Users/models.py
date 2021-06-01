@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models   import AbstractUser
 from django.utils.text import  slugify
+from django.contrib.auth import get_user_model
 import random
 
 
@@ -29,7 +30,7 @@ class State(models.Model) :
 class User(AbstractUser) :
     
     def get_path(instance,filename) :
-        filename = "{}.{}".format(instance.name,filename.split('.')[1])
+        filename = "{}.{}".format(instance.username,filename.split('.')[1])
         return "users/{}/passport/{}".format(instance.username,filename)
 
 
@@ -41,7 +42,7 @@ class User(AbstractUser) :
             self.get_account_number()
         return number
 
-    ACCOUNT_TYPE = (('savings','SAVINGS'),('current','CURRENT'))    
+    ACCOUNT_TYPE = (('Savings','SAVINGS'),('Current','CURRENT'))    
            
     
     email_verified = models.BooleanField(default=False,blank = True)
@@ -55,21 +56,31 @@ class User(AbstractUser) :
     account_number  = models.CharField(default=get_account_number,editable=False,null = False,max_length=14,unique=True,blank = True)
     account_type = models.CharField(default="SAVINGS",max_length=10,choices = ACCOUNT_TYPE)
     passport = models.FileField(upload_to = get_path,null = True)
-    is_activated = models.BooleanField(default = False,blank = False,null = True)
-    
+    is_activated = models.BooleanField(default = False,blank = False,null = False)
+    #admin controls account from here
+    is_blocked = models.BooleanField(default = False)
+    block_reason = models.TextField()
 
     def __str__(self)  :
         st = "{} {}".format(self.first_name,self.last_name) 
-        if not len(st) > 0 : st = self.username
+        if not len(st) > 1 : st = self.username
         return st
 
     def save(self,*args,**kwargs) :
         if not self.account_number :
             self.account_number = self.get_account_number()
+        if  self.is_blocked :
+            #notify user
+            #email user
+            #sms user
+            pass
+
         super(User,self).save(*args,**kwargs)
 
 
 class Dashboard(models.Model) :
     pass
+
+
 
 

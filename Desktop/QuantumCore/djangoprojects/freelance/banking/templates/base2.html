@@ -31,7 +31,7 @@
     <!-- ==========Preloader========== -->
     <div class="preloader">
         <div class="preloader-wrapper">
-            <img src="assets/css/ajax-loader.gif" alt="ajax-loader">
+            <img src="{%  static 'assets/css/ajax-loader.gif' %}" alt="ajax-loader">
         </div>
     </div>
     <!-- ==========Preloader========== -->
@@ -58,7 +58,7 @@
                             </ul>
                         </div>
                         <div class="col-md-4 d-flex flex-wrap align-items-center justify-content-end">
-                            <ul class="social">
+                            <!--ul class="social">
                                 <li>
                                     <a href="#0">
                                         <i class="fab fa-facebook-f"></i>
@@ -79,7 +79,7 @@
                                         <i class="fab fa-linkedin-in"></i>
                                     </a>
                                 </li>
-                            </ul>
+                            </ul-->
                             <div class="d-none d-md-block">
                                 <select class="select-bar">
                                     <option value="01">English</option>
@@ -97,7 +97,7 @@
             <div class="container">
                 <div class="header-area">
                     <div class="logo">
-                        <a href="index.html"><img src="{% static 'assets/images/logo/logo02.png' %}" alt="logo"></a>
+                        <a href="#"><img src="{% static 'assets/images/logo/logo02.png' %}" alt="logo"></a>
                     </div>
                     <ul class="menu">
                         <li>
@@ -105,42 +105,21 @@
                             
                         </li>
                         <li>
+                            <a href="#">Loans & Investment</a>
+                           
+                       </li>
+                        <li>
                             <a href="#0">company</a>
                             <ul class="submenu">
                                 <li>
-                                    <a href="about.html">About Us</a>
+                                    <a href="{% url 'about-us' %}">About Us</a>
+                                    <a href="{% url 'services' %}">Services</a>
+                                    <a href="{% url 'faq' %}">FAQ</a>
+                                    <a href="{% url 'tos' %}">Terms Of Service</a>
+
                                 </li>
-                                <li>
-                                    <a href="#0">Case</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="case.html">Recent Case</a>
-                                        </li>
-                                        <li>
-                                            <a href="case-details.html">Case Details</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#0">Pages</a>
-                                    <ul class="submenu">
-                                        <li>
-                                            <a href="pricing-plan.html">Price Plan</a>
-                                        </li>
-                                        <li>
-                                            <a href="faq.html">Faq</a>
-                                        </li>
-                                        <li>
-                                            <a href="privacy.html">Privacy</a>
-                                        </li>
-                                        <li>
-                                            <a href="404.html">404</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="operators.html">Operators</a>
-                                </li>
+                               
+                                
                             </ul>
                         </li>
                         <li>
@@ -162,7 +141,7 @@
                         </li>
                         
                         <li>
-                            <a href="contact.html">contact</a>
+                            <a href="{% url 'contact' %}">contact</a>
                         </li>
                     </ul>
                     <div class="header-bar d-lg-none">
@@ -199,39 +178,19 @@
     </div>
     <!-- ==========Header Section========== -->
 
-
+     
        {% block content %}
     
     <!--=================Sponsor Section================= -->
     {% endblock %}
+
     <!--=================Footer Section================= -->
     <footer>
         <div class="footer-top padding-top padding-bottom">
             <div class="container">
                 <div class="row mb-50-none">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="footer-widget footer-link">
-                            <h5 class="title">bulk SMS</h5>
-                            <ul>
-                                <li>
-                                    <a href="#0">masking SMS</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Non-Masking SMS</a>
-                                </li>
-                                <li>
-                                    <a href="#0">location based SMS</a>
-                                </li>
-                                <li>
-                                    <a href="#0">Voice message</a>
-                                </li>
-                                <li>
-                                    <a href="#0">promo SMS</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
+                    
+                    <div class="col-sm-6 col-lg-6 col-6">
                         <div class="footer-widget footer-link">
                             <h5 class="title">company</h5>
                             <ul>
@@ -253,27 +212,12 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="footer-widget footer-link">
-                            <h5 class="title">Partners</h5>
-                            <ul>
-                                <li>
-                                    <a href="#0">kingstar</a>
-                                </li>
-                                <li>
-                                    <a href="#0">laravala click</a>
-                                </li>
-                                <li>
-                                    <a href="#0">yago</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-lg-3">
+                    
+                    <div class="col-sm-6 col-lg-6 col-6  ">
                         <div class="footer-widget footer-about">
                             <h5 class="title">about us</h5>
                             <p>Tellus fermentum a aenean laoreet libero in, at convallis varius morbi.</p>
-                            <ul class="footer-social">
+                            <!--ul class="footer-social">
                                 <li>
                                     <a href="#0"><i class="fab fa-facebook-f"></i></a>
                                 </li>
@@ -286,16 +230,16 @@
                                 <li>
                                     <a href="#0"><i class="fab fa-linkedin-in"></i></a>
                                 </li>
-                            </ul>
+                            </ul-->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="footer-bottom py-3 py-sm-4 text-center">
-            <div class="container">
+            <!--div class="container">
                 <p class="m-0"> <a href="templateshub.net">Templates Hub</a></p>
-            </div>
+            </div-->
         </div>
     </footer>
     <!--=================Footer Section================= -->

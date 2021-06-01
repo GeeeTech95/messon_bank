@@ -41,12 +41,14 @@ class Services(TemplateView) :
          
 
 class TOS(TemplateView) :
-    template_name  = 'terms-of-service-xchange.html'
+    template_name  = 'privacy.html'
 
     def get_context_data(self,*args,**kwargs) : 
         context = super(TOS,self).get_context_data(*args,**kwargs) 
         context['tclass'] = 'active'
         return context
+
+
 
 class Contact(View) :
     template_name = 'contact.html'
